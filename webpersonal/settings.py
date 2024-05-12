@@ -27,6 +27,7 @@ DEBUG = False #En la fase de construccion
 
 ALLOWED_HOSTS = [
     'matchutm.herokuapp.com',
+    'https://matchutm-b37e64f84404.herokuapp.com/',
     'www.matchutm.herokuapp.com',  # Si estás utilizando www
 ]
 
