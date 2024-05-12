@@ -27,4 +27,7 @@ def index(request):
     return render(request, 'miapp/index.html', data)
 
 def home(request):
-    return render(request, 'miapp/home.html')
+    data = {
+        'titulo': 'Habitacion'
+    }
+    return render(request, 'miapp/home.html', data)
