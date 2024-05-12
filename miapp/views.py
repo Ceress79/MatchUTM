@@ -1,9 +1,7 @@
 #miapp
 from django.shortcuts import render, redirect # type: ignore
 
-from django.contrib.auth.models import *
-
-
+from django.contrib.auth.models import User
 from django.http import HttpResponse # type: ignore
 
 def index(request):
@@ -13,6 +11,9 @@ def index(request):
         contrasena = request.POST.get('contrasena')
     
         usuario = User.objects.filter(email=correo).first()
+
+        # Agrega una impresión para verificar el valor de 'correo' y 'contrasena'
+        print(f'Correo: {correo}, Contraseña: {contrasena}')
         if usuario is not None and usuario.check_password(contrasena):
             
             return redirect('miapp:home')

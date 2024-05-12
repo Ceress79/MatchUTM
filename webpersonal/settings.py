@@ -26,8 +26,9 @@ SECRET_KEY = 'django-insecure-k2)neef$lmqq@#o)eyz2z8rf18z2amyjwh8$988u%2f*rwos-r
 DEBUG = False #En la fase de construccion
 
 ALLOWED_HOSTS = [
-    'matchutm.herokuapp.com'
-] # Importante 
+    'matchutm.herokuapp.com',
+    'www.matchutm.herokuapp.com',  # Si estás utilizando www
+]
 
 
 from django.http import HttpResponse # type: ignore
@@ -134,3 +135,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
