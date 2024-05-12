@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k2)neef$lmqq@#o)eyz2z8rf18z2amyjwh8$988u%2f*rwos-r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #En la fase de construccion
+DEBUG = False #En la fase de construccion
 
 ALLOWED_HOSTS = [
     'matchutm.herokuapp.com'
@@ -128,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
