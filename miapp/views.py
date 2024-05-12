@@ -15,7 +15,7 @@ def index(request):
         usuario = User.objects.filter(email=correo).first()
         if usuario is not None and usuario.check_password(contrasena):
             
-            return redirect('home/')
+            return redirect('home')
 
     data = {
         
