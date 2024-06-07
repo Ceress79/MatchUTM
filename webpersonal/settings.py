@@ -25,11 +25,7 @@ SECRET_KEY = 'django-insecure-k2)neef$lmqq@#o)eyz2z8rf18z2amyjwh8$988u%2f*rwos-r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #En la fase de construccion
 
-ALLOWED_HOSTS = [
-    'matchutm.herokuapp.com',
-    'matchutm-b37e64f84404.herokuapp.com',
-    'www.matchutm.herokuapp.com'
-]
+ALLOWED_HOSTS = ['143.198.234.182','localhost']
 
 
 from django.http import HttpResponse # type: ignore
@@ -85,11 +81,11 @@ WSGI_APPLICATION = 'webpersonal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd7fms1hd7dk3m0',
-        'USER': 'u41scp115p8u2i',
-        'PASSWORD': 'p22c32aeb55752d77853d4fa615d57575e2ee2173123486578fdf758134ec34d8',
-        'HOST': 'cb5ajfjosdpmil.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-        'PORT': '5432'
+        'NAME': 'MatchUTM',
+        'USER': 'ceress',
+        'PASSWORD': '123456',  
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -130,13 +126,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'miapp/static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
