@@ -1,0 +1,64 @@
+/* CODIGO CREADOR Y DISEÑADOR YO :V CERESS XDD XDD*/
+
+/* ----------------------------ESTILOS GENERALES------------------------------*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f6dcd1;
+}
+
+/* ----------------------------ESTILOS TIPOGRAFICOS------------------------------*/
+
+.message {
+    font-size: 3em;
+    text-align: center;
+}
+.input2{
+    position:absolute;
+    left: 75px;
+    width: 23rem;
+    height: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    top:280px
+}
+.Roboto {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.cuadro{
+    width: 33rem;
+    height: 40rem;
+    background-color: #130606;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+}
+
+.cuadro13{
+    position:fixed;
+    width: 10rem;
+    height: 5rem;
+    top: 84%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    font-size: 25px;
+    text-align: center;
+    background-color:rgb(255, 0, 60)
+}
+
+
+.centrado {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

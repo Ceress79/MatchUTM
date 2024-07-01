@@ -1,17 +1,210 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">  <!-- Enlace al archivo CSS externo -->
-</head>
-<body>
-    <header>
-        <h1>Bienvenido a MatchUTM</h1>
-    </header>
+    <!-- Enlazar estaticos css-->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+     <!-- Enlazar JavaScript -->
+    <script defer src="{% static 'javascript/home.js' %}"></script>
 
+</head>
+
+<body>
+    <div class="barra-navegacion">
+        <!-- -----------------------------LADO IZQUIERDO------------------------------->
+        <div class="nav-izquierda">
+            <!-- Boton clic (Al apretar de despleja lo del desplegable 1)-->
+             
+                <img src="{% static 'imagenes/home_img/Menu.svg' %}" alt="Menu" class="agrandar" onclick="toggleMenu_general()">
+            
+            <!-- Boton para notificaciones -->
+                <img src="{% static 'imagenes/home_img/Notificacion.svg' %}" alt="Notificaciones" class="icono agrandar" onclick="toggleMenuNotificaciones()">
+
+            <!-- Boton para la página de inicio -->
+            <a href="{% url 'miapp:home' %}">
+                <img src="{% static 'imagenes/home_img/Home.svg' %}" alt="Inicio" class="agrandar" >
+            </a>
+
+            <!-- Boton para acceder al apartado de perfil-->
+
+            <!-- Boton para acceder al apartado de perfil-->
+            <a href="{% url 'miapp:profile' %}">
+                <img src="{% if request.user.perfil.foto_perfil %}{{ request.user.perfil.foto_perfil.url }}{% else %}{% static 'path/to/default/profile_picture.jpg' %}{% endif %}" alt="Perfil" class="icono foto-perfil agrandar">
+            </a>
+            
+            
+
+        </div>
+
+        <!-- --------------------------LOOPS------------------------------- -->
+        <div class="fondo">
+                <div class="rectangulo_loops" id="rectangulo_loops">
+                    <button class="boton_navegacion-loops agrandar" id="boton_navegacion-loops" 
+                            desplejable1-src="{% static 'imagenes/home_img/Desplejable2.svg' %}"
+                            desplejable2-src="{% static 'imagenes/home_img/Desplejable.svg' %}">
+                        <img src="{% static 'imagenes/home_img/Desplejable.svg' %}" alt="Expand" id="desplejable3-src">
+                    </button>
+                </div>
+
+                <div class="contenedor-loops">
+                    <!-- Contenido del video aquí -->
+                    <div class="icons-loos">
+                        <div class="icon-circle agrandar">
+                            <img src="{% static 'imagenes/home_img/fechaizq.svg' %}" alt="Flecha Izquierda">                         
+                        </div>
+
+                        <div class="icon-circle agrandar">
+                            <img src="{% static 'imagenes/home_img/graduacion.svg' %}" alt="Configuración">
+                        </div>
+
+                        <div class="icon-circle agrandar">
+                            <img src="{% static 'imagenes/home_img/zoom.svg' %}" alt="Maximizar">
+                        </div>
+
+                        <div class="icon-circle agrandar">
+                            <img src="{% static 'imagenes/home_img/corazon.svg' %}" 
+                            alt="Like" style="height: 35px; width: 35px;" >
+                        </div>
+
+                        <div class="icon-circle agrandar">
+                            <img src="{% static 'imagenes/home_img/der.svg' %}" alt="Flecha Derecha">
+                        </div>
+
+                    </div>
+                </div>
+            
+        </div>
+
+        
+
+
+        <!-- Botones (Enlaces de arriba)-->
+        <div class="nav-centro">
+
+            <!-- DIRECCIONAR A LA PLANTILLA MENSAJE-->
+            <a href="#" style="text-decoration: none; color: #898282;">
+                <div class="a2 enlace-color" >Mensaje</div>
+            </a>
+            <!-- DIRECCIONAR A LA PLANTILLA PUBLICACION-->
+            <a href="#" style="text-decoration: none; color: #898282;">
+                <div class="a2 enlace-color" >Publicacion</div>
+            </a>
+            <!-- DIRECCIONAR A LA PLANTILLA LOOPS-->
+            <a href="#" style="text-decoration: none; color: #898282;">
+                <div class="a2 enlace-color" >Loops</div>
+            </a>
+
+        </div>
+
+        <!----------------------------Lado derecho--------------------------------->
+        <a href="../home/" style="text-decoration: none; color: #ffffff;">
+            <div class="nav-derecha enlace-color">
+                <div class="logo">MatchUTM</div>
+                <img src="{% static 'imagenes/home_img/Logo.svg' %}" alt="Logo UTM" class="logo-utm">
+            </div>
+        </a>
+
+
+    </div>
+    
+
+
+       <!-- FIN DE LOS MARCOS DE LOS LOOPS--> 
+
+       <!--  MENU PRUEBA 3 RAYITAS-->
+       <div id="menu-cuadro" class="menu-cuadro">
+        <a href="#">Ceress79</a>
+        <a href="#">Configuracion</a>
+        <a href="#">No se q poner :v</a>
+        <!-- Agrega más enlaces según sea necesario -->
+        </div>
+
+    </div>
+
+    <!-- Fondo oscuro -->
+    <div id="fondo-oscuro" class="fondo-oscuro"></div>
+
+    <!-- Contenedor de notificaciones -->
+    <div id="menu-notificaciones" class="menu-notificaciones">
+        <h2>Notificaciones</h2>
+        <div class="notificacion">Notificación 1</div>
+        <div class="notificacion">Notificación 2</div>
+        <div class="notificacion">Notificación 3</div>
+    </div>
+
+
+    <!-- Contenido de la pagina principal, Tarjetas de facultades, etc...-->    
+    <div class="contenido-principal">
+        <div class="contenido ">
+            <div class="promociones ">
+                <img src="{% static 'imagenes/home_img/Promocion.gif' %}" alt="Promociones">
+            </div>
+
+            <!-- Lista de tarjetas de facultades -->
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FICA.svg' %}" alt="Facultad 1">
+                <div class="nombre-facultad">Facultad de Ingeniería y Ciencias Aplicadas</div>
+            </div>
+            
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCAE.svg' %}" alt="Facultad 2">
+                <div class="nombre-facultad">Facultad de Ciencias Administrativas y Económicas</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCHS.svg' %}" alt="Facultad 3">
+                <div class="nombre-facultad">Facultad de Ciencias Humanísticas y Sociales</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCS.svg' %}" alt="Facultad 4">
+                <div class="nombre-facultad">Facultad de Ciencias de la Salud</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCE.svg' %}" alt="Facultad 5">
+                <div class="nombre-facultad">Facultad de Ciencias de la Educación</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FIA.svg' %}" alt="Facultad 6">
+                <div class="nombre-facultad">Facultad de Ingeniería Agrícola</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCV.svg' %}" alt="Facultad 7">
+                <div class="nombre-facultad">Facultad de Ciencias Veterinarias</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCI.svg' %}" alt="Facultad 8">
+                <div class="nombre-facultad">Facultad de Ciencias Informáticas</div>
+            </div>
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FIAG.svg' %}" alt="Facultad 9">
+                <div class="nombre-facultad">Facultad de Ingenieria Agronómica</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FA.svg' %}" alt="Facultad 10">
+                <div class="nombre-facultad">Facultad de Agrociencias</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FACM.svg' %}" alt="Facultad 11">
+                <div class="nombre-facultad">Facultad de Acuicultura y Ciencias del Mar</div>
+            </div>
+
+            <div class="tarjeta-facultad agrandar_contenido">
+                <img src="{% static 'imagenes/home_img/FCB.svg' %}" alt="Facultad 12">
+                <div class="nombre-facultad">Facultad de Ciencias Básicas</div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,221 @@
+<!-- profile.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <script defer src="{% static 'javascript/home.js' %}"></script>
+</head>
+
+<body>
+
+
+
+    <div class="barra-navegacion">
+        <!-- -----------------------------LADO IZQUIERDO------------------------------->
+        <div class="nav-izquierda">
+            <!-- Boton clic (Al apretar de despleja lo del desplegable 1)-->
+
+            <img src="{% static 'imagenes/home_img/Menu.svg' %}" alt="Menu" class="agrandar"
+                onclick="toggleMenu_general()">
+
+            <!-- Boton para notificaciones -->
+            <img src="{% static 'imagenes/home_img/Notificacion.svg' %}" alt="Notificaciones" class="icono agrandar"
+                onclick="toggleMenuNotificaciones()">
+
+            <!-- Boton para la página de inicio -->
+            <a href="{% url 'miapp:home' %}">
+                <img src="{% static 'imagenes/home_img/Home.svg' %}" alt="Inicio" class="agrandar">
+            </a>
+
+            <!-- Boton para acceder al apartado de perfil-->
+            <a href="{% url 'miapp:profile' %}">
+                <img src="{% if request.user.perfil.foto_perfil %}{{ request.user.perfil.foto_perfil.url }}{% else %}{% static 'path/to/default/profile_picture.jpg' %}{% endif %}" alt="Perfil" class="icono foto-perfil agrandar">
+            </a>
+            
+            
+        </div>
+
+        <!-- --------------------------LOOPS------------------------------- -->
+        <div class="fondo">
+            <div class="rectangulo_loops" id="rectangulo_loops">
+                <button class="boton_navegacion-loops agrandar" id="boton_navegacion-loops"
+                    desplejable1-src="{% static 'imagenes/home_img/Desplejable2.svg' %}"
+                    desplejable2-src="{% static 'imagenes/home_img/Desplejable.svg' %}">
+                    <img src="{% static 'imagenes/home_img/Desplejable.svg' %}" alt="Expand" id="desplejable3-src">
+                </button>
+            </div>
+
+            <div class="contenedor-loops">
+                <!-- Contenido del video aquí -->
+                <div class="icons-loos">
+                    <div class="icon-circle agrandar">
+                        <img src="{% static 'imagenes/home_img/fechaizq.svg' %}" alt="Flecha Izquierda">
+                    </div>
+
+                    <div class="icon-circle agrandar">
+                        <img src="{% static 'imagenes/home_img/graduacion.svg' %}" alt="Configuración">
+                    </div>
+
+                    <div class="icon-circle agrandar">
+                        <img src="{% static 'imagenes/home_img/zoom.svg' %}" alt="Maximizar">
+                    </div>
+
+                    <div class="icon-circle agrandar">
+                        <img src="{% static 'imagenes/home_img/corazon.svg' %}" alt="Like"
+                            style="height: 35px; width: 35px;">
+                    </div>
+
+                    <div class="icon-circle agrandar">
+                        <img src="{% static 'imagenes/home_img/der.svg' %}" alt="Flecha Derecha">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botones (Enlaces de arriba)-->
+        <div class="nav-centro">
+
+            <!-- DIRECCIONAR A LA PLANTILLA MENSAJE-->
+            <a href="#" style="text-decoration: none; color: #898282;">
+                <div class="a2 enlace-color">Mensaje</div>
+            </a>
+            <!-- DIRECCIONAR A LA PLANTILLA PUBLICACION-->
+            <a href="#" style="text-decoration: none; color: #898282;">
+                <div class="a2 enlace-color">Publicacion</div>
+            </a>
+            <!-- DIRECCIONAR A LA PLANTILLA LOOPS-->
+            <a href="#" style="text-decoration: none; color: #898282;">
+                <div class="a2 enlace-color">Loops</div>
+            </a>
+
+        </div>
+
+        <!----------------------------Lado derecho--------------------------------->
+        <a href="../home/" style="text-decoration: none; color: #ffffff;">
+            <div class="nav-derecha enlace-color">
+                <div class="logo">MatchUTM</div>
+                <img src="{% static 'imagenes/home_img/Logo.svg' %}" alt="Logo UTM" class="logo-utm">
+            </div>
+        </a>
+
+
+    </div>
+
+
+
+    <!-- FIN DE LOS MARCOS DE LOS LOOPS-->
+
+    <!--  MENU PRUEBA 3 RAYITAS-->
+    <div id="menu-cuadro" class="menu-cuadro">
+        <a href="#">Ceress79</a>
+        <a href="#">Configuracion</a>
+        <a href="#">No se q poner :v</a>
+        <!-- Agrega más enlaces según sea necesario -->
+    </div>
+
+    </div>
+
+    <!-- Fondo oscuro -->
+    <div id="fondo-oscuro" class="fondo-oscuro"></div>
+
+    <!-- Contenedor de notificaciones -->
+    <div id="menu-notificaciones" class="menu-notificaciones">
+        <h2>Notificaciones</h2>
+        <div class="notificacion">Notificación 1</div>
+        <div class="notificacion">Notificación 2</div>
+        <div class="notificacion">Notificación 3</div>
+    </div>
+
+    <div class="contenido-principal">
+        <div class="contenido">
+
+            <div class="profile-banner">
+                <!-- Banner de fondo -->
+                <div class="banner-image" id="bannerImage" {% if request.user.perfil.foto_banner %}
+                    style="background-image: url('{{ request.user.perfil.foto_banner.url }}')" {% endif %}>
+                    <!-- Icono de cambiar banner -->
+                    <button class="change-banner-btn" onclick="openBannerModal()">
+                        <img src="{% static 'imagenes/profile_img/default_banner.svg' %}" alt="Editar Banner" class="agrandar">
+                    </button>
+                </div>
+
+                <div>
+                    <!-- Foto de perfil -->
+                    <div class="profile-picture">
+                        <img
+                            src="{% if request.user.perfil.foto_perfil %}{{ request.user.perfil.foto_perfil.url }}{% else %}{% static 'path/to/default/profile_picture.jpg' %}{% endif %}">
+                        <!-- Icono de cambiar foto de perfil -->
+                    </div>
+                    <button class="change-profile-btn" onclick="openProfileModal() ">
+                        <img src="{% static 'imagenes/profile_img/camara.svg' %}" alt="Cambiar foto" class="agrandar">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modales para cambiar foto de perfil y banner de fondo -->
+            <div id="bannerModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeBannerModal()">&times;</span>
+                    <h2>Cambiar banner de fondo</h2>
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'miapp:profile' %}">
+                        {% csrf_token %}
+                        <input type="file" id="bannerInput" name="foto_banner" accept="image/*">
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="profileModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeProfileModal()">&times;</span>
+                    <h2>Cambiar foto de perfil</h2>
+                    <form method="POST" enctype="multipart/form-data" action="{% url 'miapp:profile' %}">
+                        {% csrf_token %}
+                        <input type="file" id="profileInput" name="foto_perfil" accept="image/*">
+                        <button type="submit">Guardar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="barra-opciones">
+
+                <a href="#" style="text-decoration: none; color: #ded2d2;">
+                    <div class="a1 enlace-color">Prestigio</div>
+                </a>
+
+
+                <a href="#" style="text-decoration: none; color: #ded2d2;">
+                    <div class="a1 enlace-color">Informacion</div>
+                </a>
+
+
+                <a href="#" style="text-decoration: none; color: #ded2d2;">
+                    <div class="a1 enlace-color">Fotos y Videos</div>
+                </a>
+
+
+                <a href="#" style="text-decoration: none; color: #ded2d2;">
+                    <div class="a1 enlace-color">Matches</div>
+                </a>
+
+            </div>
+
+
+
+
+
+            <!-- JavaScript para controlar los modales -->
+            <script defer src="{% static 'javascript/profile.js' %}"></script>
+        </div>
+    </div>
+</body>
+
+</html>

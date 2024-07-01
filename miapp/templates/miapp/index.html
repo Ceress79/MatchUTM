@@ -5,41 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">  <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Enlace al archivo CSS externo -->
 </head>
 <body>
     <div class="cuadro"></div>
 
-    <div class="cuadro  Roboto message ">
-
+    <div class="cuadro Roboto message">
         <div style="top: 50%; left: 50%; transform: translate(-13%, -50%);">
-            
-            <div style="position:absolute ;margin-top: -7rem; margin-left:11.7rem  ">
+            <div style="position:absolute; margin-top: -7rem; margin-left:11.7rem;">
                 <img src="{% static 'imagenes/logo.webp' %}" alt="Logo" width="280">
             </div>
-            
-            <div style="margin-left: 10rem; margin-top:10rem ">
+            <div style="margin-left: 10rem; margin-top:10rem;">
                 <h2 class="Roboto" style="color: white">Match<h style="color:rgb(255, 0, 81)">UTM</h></h2>
             </div>
-
         </div>
 
         <form method="post">
             {% csrf_token %}
             <div style="position: absolute; margin-top: -60px;"> 
-                <p style="font-size: 22px; margin-left: 5rem; color:aliceblue;">Correo Institucional</p>
-                <input style="top:3.2rem" class="input2" type="email" name="correo" placeholder="iquimi9873@utm.edu.ec">
+                <p style="font-size: 22px; margin-left: 5rem; color: aliceblue;">Correo Institucional</p>
+                <input style="top:3.2rem" class="input2" type="email" name="correo" placeholder="iquimi9873@utm.edu.ec" required>
             </div>
             
             <div style="position: absolute; margin-top: 60px;">
-                <p style="font-size: 22px; margin-top: 4px; margin-left: 5rem; color:aliceblue;">Contraseña</p>
-        
-                <input type="password" style="top:2rem" class="input2" name="contrasena" placeholder="pepito1234">    
+                <p style="font-size: 22px; margin-top: 4px; margin-left: 5rem; color: aliceblue;">Contraseña</p>
+                <input type="password" style="top:2rem" class="input2" name="contrasena" placeholder="pepito1234" required>
             </div>
 
-            <button class="cuadro13" style="color: rgb(255, 255, 255);"><b>Iniciar<br>Sesion</b> </button>
+            <button class="cuadro13" style="color: rgb(255, 255, 255);"><b>Iniciar<br>Sesion</b></button>
         </form>
-   
     </div>
 </body>
 </html>

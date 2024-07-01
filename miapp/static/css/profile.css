@@ -1,0 +1,520 @@
+/* Importar el tipo de letra DM SANS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/*----------------------------CSS Reset------------------------- */
+
+/* Reset general para elementos HTML */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/*__________________________________________________________________________________________________________________________________________*/
+
+
+/* Estilos para el banner de fondo */
+
+.contenido-principal {
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    margin-top: 62px; /* Espacio para la barra de navegación fija */
+    padding-left: 0px; /* Espacio a la izquierda */
+    padding-right: 10px; /* Espacio a la derecha */
+}
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinea las tarjetas al centro */
+    width: calc(100% - 310px); /* Ancho menos la sección teléfono */
+    margin-left: 0px;
+}
+
+.profile-banner {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura del banner de fondo */
+    background-color: #f5b6b6; /* Color de fondo temporal */
+    overflow: hidden;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.change-banner-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+    padding: 8px 16px;
+    background-color: #ffffff00;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos para la foto de perfil */
+.profile-picture {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    width: 145px; /* Tamaño del círculo de la foto de perfil */
+    height: 145px; /* Tamaño del círculo de la foto de perfil */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #8007f128; /* Borde blanco para resaltar */
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); /* Sombra ligera */
+    
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.change-profile-btn {
+    position: absolute;
+    top: 65%;
+    left: 1px; /* Ajustado a la derecha */
+    padding: 8px 16px;
+    background-color: #ffffff00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/* Estilos para los modales */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal-content input[type=file] {
+    display: block;
+    margin: 10px auto;
+}
+
+.modal-content button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/*BARRA DEBAJO DEL BANNER*/
+.barra-opciones {
+    display: flex;
+    padding: 10px 20px; 
+    top: 0;
+    width: 100%;
+    height: 20px;
+    justify-content:  flex-start;
+    align-items: center;
+    bottom: 0;
+    background-color: #130606;
+    color: white;
+    z-index: 10;
+   /* border-top: 1px solid #fff; /* Borde superior para separar */
+}
+
+.barra-opciones .opcion {
+    justify-content:right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.barra-opciones .a1 {
+    margin: 0 20px;
+    font-size: 17px;
+    font-weight:bolder;
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+
+
+
+
+
+/* ----------------------------ESTILOS GENERALES------------------------------*/
+/* Estilos generales para el cuerpo del documento */
+body {
+    margin: 0; font-family: 'DM Sans', sans-serif; background-color: #F6DCD1; line-height: 1;
+}
+
+
+/* ----------------------------ESTILOS CABECERA------------------------------*/
+/* Estilos para la barra de navegación */
+.barra-navegacion {
+    position: fixed; /* Cambia a fixed para que la barra permanezca en su lugar */
+    top: 0;
+    width: 100%; /* Asegura que la barra ocupe todo el ancho de la pantalla */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #130606; 
+    color: white;
+    z-index: 10;
+}
+
+.barra-navegacion .nav-izquierda, .barra-navegacion .nav-derecha {
+    display: flex; 
+    align-items: center;
+}
+
+.barra-navegacion .nav-izquierda .icono{
+    position: relative;
+    height: 30px; 
+    margin: 0 26px;
+}
+
+.barra-navegacion .nav-izquierda .foto-perfil {
+    width: 40px; /* Tamaño del círculo */
+    height: 40px; /* Tamaño del círculo */
+    border-radius: 50%; /* Hace que el borde sea redondeado */
+    object-fit: cover; /* Ajusta la imagen al tamaño del círculo */
+    object-position: center; /* Centra la imagen dentro del círculo */
+    border: 2px solid #fff; /* Borde blanco para destacar */
+    background-color: #000000;
+}
+
+
+.barra-navegacion .nav-centro {
+    position: absolute;
+    display: flex; 
+    justify-content: flex-start;
+    left: 32%;
+     
+}
+
+.barra-navegacion .nav-centro .a2 {
+    margin: 0 45px;
+    font-size: 20px;
+    font-weight:bolder;
+    font-family: 'DM Sans', sans-serif;
+    
+}
+
+.barra-navegacion .nav-derecha{
+    position: relative;
+    height: 30px; 
+    margin: 0 10px;
+}
+
+.barra-navegacion .nav-derecha .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.barra-navegacion .nav-derecha .logo-utm{
+    margin-top:10px;
+    height: 70PX;
+    margin-left: -40px; 
+}
+
+.fondo{
+    width: 320px;
+    position: fixed;
+    align-items: center;
+    top: 60px;
+    right: 0;
+    height: 100%; 
+    background-color: #130606;
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* ----------------------------CSS DE LOS LOOPS------------------------*/
+.fondo .rectangulo_loops {
+    right: 10px;
+    width: 300px;
+    height: 80px;
+    background-color: #F1BEBE;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    transition: height 0.3s ease;
+    z-index: 1;
+}
+
+
+.boton_navegacion-loops {
+    border-color: transparent;
+    position: absolute;
+    bottom: -50px;
+    background-color: #f1bebe00;
+    transition: transform 1s;
+}
+
+.rectangulo_loops.desplejar-loops { 
+    height: 400px;
+}
+
+.contenedor-loops {
+    position: absolute;
+    top:80px;
+    width: 300px;
+    height: 620px;
+    background-color: #521010;
+    border-radius: 45px;
+}
+
+
+.icons-loos {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+
+}
+
+.icons-loos img{
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-circle img {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+/* ----------------------Efecto de escala----------------------*/
+.agrandar:hover {
+    transform: scale(1.2); /* Escala el elemento al 120% de su tamaño original */
+    transition: transform 0.2s ease-in-out; /* Añade una transición suave */
+}
+
+.agrandar_contenido:hover {
+    transform: scale(1.1); /* Escala el elemento al 120% de su tamaño original */
+    transition: transform 0.10s ease-in-out; /* Añade una transición suave */
+}
+
+/* Efecto de escala en la campanita de notificaciones */
+.icono:hover {
+    transform: scale(1.2); /* Escala el elemento al 120% de su tamaño original */
+    transition: transform 0.2s ease-in-out; /* Añade una transición suave */
+}
+
+/* ----------------------------ESTILOS ESTRUCTURA------------------------------*/
+/* Estilos para la estructura principal de la página */
+
+
+
+
+/* ----------------------------SECCION TELEFONO------------------------------*/
+/* Asegura que la sección teléfono permanezca fija en su lugar */
+
+
+/* ----------------------------ESTILOS TIPOGRAFICO------------------------------*/
+/* Estilos para la tipografía general */
+
+
+/* Estilos para los enlaces en nav-centro */
+
+.enlace-color:hover {
+    color: #E9305B; /* Cambiar color al hacer hover */
+}
+
+/* ----------------------------ESTILOS PIE DE PAGINA------------------------------*/
+/* Estilos específicos para el pie de página */
+
+/* ----------------------------ESTILOS PAGINA------------------------------*/
+/* Estilos globales de la página */
+
+/* Estilos específicos para el menú desplegable */
+
+.menu-cuadro {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; 
+    left: 13px;
+    background-color: #130606;
+    height: 23rem;
+    width: 15rem;
+    padding: 10px;
+    z-index: 2000;
+
+}
+
+.menu-cuadro.visible {
+    display: flex;
+}
+
+.menu-cuadro a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+
+.promociones {
+    width: calc(100% - 10px); /* Espacio de separación con el borde izquierdo */
+    margin-bottom: 20px;
+    height: 250px; /* Ajusta este valor según tus necesidades */
+    overflow: hidden;
+    position: relative;
+}
+
+.promociones img {
+    width: 103%;
+    transform: scaleY(1.13 );
+}
+.tarjeta-facultad {
+    width: calc((90% - 160px) / 4); /* Ajusta el ancho para cuatro tarjetas */
+    height: 420px;
+    margin: 30px; 
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.tarjeta-facultad img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+
+.tarjeta-facultad .nombre-facultad {
+    padding: 4px;
+    font-weight: bold;
+}
+
+
+
+/* _____________________________________________________*/
+
+
+/* Fondo oscuro */
+.fondo-oscuro {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.699);
+    z-index: 10;
+}
+
+/* Contenedor de notificaciones */
+.menu-notificaciones {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 300px;
+    max-height: 80vh;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.795);
+    z-index: 11;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+/* Estilo de cada notificación */
+.menu-notificaciones .notificacion {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-notificaciones .notificacion:last-child {
+    border-bottom: none;
+}

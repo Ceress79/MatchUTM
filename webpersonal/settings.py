@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k2)neef$lmqq@#o)eyz2z8rf18z2amyjwh8$988u%2f*rwos-r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #En la fase de construccion
 
-ALLOWED_HOSTS = ['143.198.234.182','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
 from django.http import HttpResponse # type: ignore
@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'webpersonal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'MatchUTM',
-        'USER': 'ceress',
+        'NAME': 'matchutm',
+        'USER': 'postgres',
         'PASSWORD': '123456',  
         'HOST': 'localhost',
         'PORT': '',
@@ -121,16 +121,28 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Configuración de URLs de autenticación
+LOGIN_URL = 'index'
+LOGIN_REDIRECT_URL = 'home'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'miapp/static')
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'miapp/static'),
+    os.path.join(BASE_DIR, 'miapp/static/javascript'), 
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Configuración para añadir hashes a los archivos estáticos y evitar el caché del navegador
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+# webpersonal/settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
