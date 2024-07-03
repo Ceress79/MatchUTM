@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .forms import UserForm, PerfilForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from .models import Facultad
 
 def index(request):
     correo = ""
@@ -36,7 +37,8 @@ def index(request):
 # home 
 def home(request):
     data = {
-        'titulo': 'Habitacion'
+        'titulo': 'Habitacion',
+        'facultades': Facultad.objects.all()
     }
     return render(request, 'miapp/home.html', data)
 

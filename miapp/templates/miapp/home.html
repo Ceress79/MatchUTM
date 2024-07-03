@@ -144,65 +144,14 @@
             </div>
 
             <!-- Lista de tarjetas de facultades -->
+            {% for facultad in facultades %}
             <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FICA.svg' %}" alt="Facultad 1">
-                <div class="nombre-facultad">Facultad de Ingeniería y Ciencias Aplicadas</div>
+                <img src="{{ facultad.imagen.url }}" alt="Facultad {{ forloop.counter }}">
+                <div class="nombre-facultad">{{ facultad.nombre }}</div>
             </div>
-            
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCAE.svg' %}" alt="Facultad 2">
-                <div class="nombre-facultad">Facultad de Ciencias Administrativas y Económicas</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCHS.svg' %}" alt="Facultad 3">
-                <div class="nombre-facultad">Facultad de Ciencias Humanísticas y Sociales</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCS.svg' %}" alt="Facultad 4">
-                <div class="nombre-facultad">Facultad de Ciencias de la Salud</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCE.svg' %}" alt="Facultad 5">
-                <div class="nombre-facultad">Facultad de Ciencias de la Educación</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FIA.svg' %}" alt="Facultad 6">
-                <div class="nombre-facultad">Facultad de Ingeniería Agrícola</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCV.svg' %}" alt="Facultad 7">
-                <div class="nombre-facultad">Facultad de Ciencias Veterinarias</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCI.svg' %}" alt="Facultad 8">
-                <div class="nombre-facultad">Facultad de Ciencias Informáticas</div>
-            </div>
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FIAG.svg' %}" alt="Facultad 9">
-                <div class="nombre-facultad">Facultad de Ingenieria Agronómica</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FA.svg' %}" alt="Facultad 10">
-                <div class="nombre-facultad">Facultad de Agrociencias</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FACM.svg' %}" alt="Facultad 11">
-                <div class="nombre-facultad">Facultad de Acuicultura y Ciencias del Mar</div>
-            </div>
-
-            <div class="tarjeta-facultad agrandar_contenido">
-                <img src="{% static 'imagenes/home_img/FCB.svg' %}" alt="Facultad 12">
-                <div class="nombre-facultad">Facultad de Ciencias Básicas</div>
-            </div>
-
+            {% empty %}
+            <p>Actualmente no hay facultades, somos pobres</p>
+            {% endfor %}
         </div>
     </div>
 
